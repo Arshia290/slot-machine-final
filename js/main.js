@@ -40,6 +40,11 @@ async function initializeGame() {
         const loadedAssets = await assetLoader.loadAssets();
         
         console.log("Assets loaded:", Object.keys(loadedAssets));
+
+        // Initialize Reel System
+        console.log("Initializing Reel System...");
+        const reelSystem = new ReelSystem();
+        reelSystem.createReelSprites(loadedAssets, reelsContainer);
         
     } catch (error) {
         console.error("Failed to initialize game:", error);
