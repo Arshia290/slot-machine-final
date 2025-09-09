@@ -31,4 +31,22 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-console.log("Game initialized successfully.");
+async function initializeGame() {
+    console.log("Starting asset loading...");
+    
+    const assetLoader = new AssetLoader(app);
+    
+    try {
+        const loadedAssets = await assetLoader.loadAssets();
+        
+        console.log("Assets loaded:", Object.keys(loadedAssets));
+        
+    } catch (error) {
+        console.error("Failed to initialize game:", error);
+    }
+}
+
+// Start the game
+initializeGame();
+
+console.log("Pixi.js application initialized.");
