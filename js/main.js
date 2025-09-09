@@ -45,6 +45,16 @@ async function initializeGame() {
         console.log("Initializing Reel System...");
         const reelSystem = new ReelSystem();
         reelSystem.createReelSprites(loadedAssets, reelsContainer);
+
+        // Initialize UI
+        console.log("Initializing UI...");
+        const ui = new UI(app);
+
+        ui.createSpinButton(loadedAssets, uiContainer, () => {
+            ui.setSpinButtonEnabled(false);
+            reelSystem.spin();
+            ui.setSpinButtonEnabled(true);
+        });
         
     } catch (error) {
         console.error("Failed to initialize game:", error);

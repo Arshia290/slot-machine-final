@@ -69,4 +69,31 @@ class ReelSystem {
             console.log(`Reel ${reel + 1}: ${symbols.join(', ')}`);
         }
     }
+
+    spin() {
+        console.log("Spinning reels...");
+
+        for(let col = 0; col < 5; col++) {
+            this.currentPositions[col] = Math.floor(Math.random() * this.reelBands[col].length);
+        }
+
+        console.log("New positions after spin:", this.currentPositions);
+        this.updateReelSprites();
+    }
+
+    updateReelSprites() {
+        console.log("Updating reel sprites...");
+
+        for(let col = 0; col < 5; col++) {
+            const visibleSymbols = this.getVisibleSymbols(col, this.currentPositions[col]);
+
+            for(let row = 0; row < 3; row++) {
+                const symbolKey = visibleSymbols[row];
+                this.symbolSprites[col][row].texture = this.loadedAssets[symbolKey];
+            }
+        }
+
+        console.log("Reel sprites updated.");
+        this.logCurrentGrid();
+    }
  }
