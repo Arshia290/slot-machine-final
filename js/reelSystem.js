@@ -96,4 +96,12 @@ class ReelSystem {
         console.log("Reel sprites updated.");
         this.logCurrentGrid();
     }
+
+     getCurrentScreen() {
+        const screen = [];
+        for (let col = 0; col < 5; col++) {
+            screen[col] = this.getVisibleSymbols(col, this.currentPositions[col]);
+        }
+        return screen;
+    }
  }

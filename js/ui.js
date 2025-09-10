@@ -34,4 +34,29 @@ class UI {
             this.spinButton.alpha = enabled ? 1.0 : 0.5;
         }
     }
+
+    createWinDisplay(container) {
+        console.log("Creating win display...");
+        
+        this.winText = new PIXI.Text('Total wins: 0', {
+            fontSize: 18,
+            fill: 'white',
+            align: 'left',
+            wordWrap: true,
+            wordWrapWidth: 700
+        });
+        
+        this.winText.x = 50;
+        this.winText.y = 480;
+        container.addChild(this.winText);
+        
+        console.log("Win display created!");
+    }
+
+    updateWinDisplay(text) {
+        if (this.winText) {
+            this.winText.text = text;
+        }
+    }
+
 }
