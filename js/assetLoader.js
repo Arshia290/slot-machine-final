@@ -14,9 +14,6 @@ class AssetLoader {
         this.preloaderText.anchor.set(0.5);
         this.preloaderText.position.set(400,300);
         this.app.stage.addChild(this.preloaderText);
-
-        console.log("Preloader created.");
-
     }
 
     async loadAssets() {

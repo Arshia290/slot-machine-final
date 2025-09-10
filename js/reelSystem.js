@@ -37,8 +37,6 @@ class ReelSystem {
     createReelSprites(loadedAssets, container) {
         this.loadedAssets = loadedAssets;
 
-        console.log("Creating reel sprites...");
-
         for(let col = 0; col < 5; col++) {
             this.symbolSprites[col] = [];
             const visibleSymbols = this.getVisibleSymbols(col, this.currentPositions[col]);
@@ -57,8 +55,6 @@ class ReelSystem {
             }
         }
 
-        console.log("Reel sprites created.");
-
         this.logCurrentGrid();
     }
 
@@ -71,7 +67,6 @@ class ReelSystem {
     }
 
     spin() {
-        console.log("Spinning reels...");
 
         for(let col = 0; col < 5; col++) {
             this.currentPositions[col] = Math.floor(Math.random() * this.reelBands[col].length);
@@ -82,7 +77,6 @@ class ReelSystem {
     }
 
     updateReelSprites() {
-        console.log("Updating reel sprites...");
 
         for(let col = 0; col < 5; col++) {
             const visibleSymbols = this.getVisibleSymbols(col, this.currentPositions[col]);
@@ -92,9 +86,6 @@ class ReelSystem {
                 this.symbolSprites[col][row].texture = this.loadedAssets[symbolKey];
             }
         }
-
-        console.log("Reel sprites updated.");
-        this.logCurrentGrid();
     }
 
      getCurrentScreen() {

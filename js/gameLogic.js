@@ -38,8 +38,6 @@ class GameLogic {
                 lineSymbols.push(currentScreen[col][row]);
             }
 
-            console.log(`Payline ${lineIndex + 1}: ${lineSymbols.join(' ')}`);
-
             const firstSymbol = lineSymbols[0];
             let matchCount = 1;
 

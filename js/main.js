@@ -2,6 +2,7 @@ const app = new PIXI.Application({
     width: 800,
     height: 600,
     backgroundColor: 0x3282b8,
+    backgroundAlpha: 0.8,
     antialias: true
 });
 
@@ -42,16 +43,13 @@ async function initializeGame() {
         console.log("Assets loaded:", Object.keys(loadedAssets));
 
         // Initialize Reel System
-        console.log("Initializing Reel System...");
         const reelSystem = new ReelSystem();
         reelSystem.createReelSprites(loadedAssets, reelsContainer);
 
         // Initialize Game Logic
-        console.log("Initializing Game Logic...");
         const gameLogic = new GameLogic();
 
         // Initialize UI
-        console.log("Initializing UI...");
         const ui = new UI(app);
 
         ui.createWinDisplay(uiContainer);

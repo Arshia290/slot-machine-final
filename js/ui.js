@@ -8,12 +8,10 @@ class UI {
     createSpinButton(loadedAssets, container, onClick) {
         this.loadedAssets = loadedAssets;
 
-        console.log("Creating spin button...");
-
         this.spinButton = new PIXI.Sprite(loadedAssets.spinButton);
         this.spinButton.anchor.set(0.5);
-        this.spinButton.x = 400;
-        this.spinButton.y = 400;
+        this.spinButton.x = 415;
+        this.spinButton.y = 430;
         this.spinButton.width = 100;
         this.spinButton.height = 100;
 
@@ -22,8 +20,6 @@ class UI {
         this.spinButton.on('pointerdown', onClick);
 
         container.addChild(this.spinButton);
-
-        console.log("Spin button created.");
     }
 
     //Preventing double click issues
@@ -36,7 +32,6 @@ class UI {
     }
 
     createWinDisplay(container) {
-        console.log("Creating win display...");
         
         this.winText = new PIXI.Text('Total wins: 0', {
             fontSize: 18,
@@ -50,7 +45,6 @@ class UI {
         this.winText.y = 480;
         container.addChild(this.winText);
         
-        console.log("Win display created!");
     }
 
     updateWinDisplay(text) {
